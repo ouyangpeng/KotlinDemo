@@ -1,5 +1,8 @@
 package kotlinTest
 
+import javax.naming.Context
+import javax.swing.text.AttributeSet
+
 //class OYPUser(val nickname: String)
 
 class OYPUser constructor(_nickname: String) { //带有一个参数的主构造器
@@ -31,6 +34,17 @@ class Secretive private constructor() {}
 
 class Secretive2 {
     private constructor()
+}
+
+
+open class DoubleConstructor {
+    constructor(ctx: Context)
+    constructor(ctx: Context, attr: AttributeSet)
+}
+
+class SubDoubleConstructor : DoubleConstructor {
+    constructor(ctx: Context) : super(ctx)
+    constructor(ctx: Context, attr: AttributeSet) : super(ctx, attr)
 }
 
 fun main(args: Array<String>) {
