@@ -28,3 +28,26 @@ class DelegatingCollectionWithOutBy<T> : Collection<T> {
 class DelegatingCollection<T>(
         innerList: Collection<T> = ArrayList<T>()
 ) : Collection<T> by innerList {}
+
+
+class CountingSet<T>(
+        val innerSet:MutableCollection<T> = HashSet<T>()
+) : MutableCollection<T> by innerSet{ // 使用关键字 by 委托MutableCollection的实现给innerSet
+    var objectsAdd = 0
+
+    override fun add(element: T): Boolean {
+        objectsAdd ++
+        return innerSet.add(element)
+    }
+
+    override fun addAll(elements: Collection<T>): Boolean {
+        objectsAdd += elements.size
+        return innerSet.addAll(elements)
+    }
+}
+
+fun main(args: Array<String>) {
+    val countingSet = CountingSet<Int>()
+    countingSet.addAll(listOf(1,1,2))
+    println("${countingSet.objectsAdd} objects were added , ${countingSet.size} remain")
+}
