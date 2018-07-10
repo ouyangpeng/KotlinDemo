@@ -9,6 +9,8 @@ class Client(val name: String, val postalCode: Int) {
     }
 
     override fun hashCode(): Int = name.hashCode() * 31 + postalCode
+
+    fun copy(name: String = this.name, postalCode: Int = this.postalCode) = Client(name, postalCode)
 }
 
 fun main(args: Array<String>) {
@@ -19,4 +21,7 @@ fun main(args: Array<String>) {
 
     val processed = setOf<Client>(Client("Alice", 343562))
     println(processed.contains(Client("Alice", 343562)))
+
+    val bob = Client("Bob",9799797)
+    println(bob.copy(postalCode = 123456))
 }
