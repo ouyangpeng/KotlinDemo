@@ -36,6 +36,15 @@ class User3(val name: String) {
 }
 
 
+class LengthCounter {
+    var counter: Int = 0
+        private set //你无法在类的外部改变这个属性
+
+    fun addWord(word: String) {
+        counter += word.length
+    }
+}
+
 fun main(args: Array<String>) {
     println(PrivateUser("test@kotlinlang.org").nickname)
     println(SubscribingUser("test@kotlinlang.org").nickname)
@@ -43,4 +52,10 @@ fun main(args: Array<String>) {
 
     val user3 = User3("Alice")
     user3.address = "广东省深圳市"
+
+
+    val lengthCounter = LengthCounter()
+    lengthCounter.addWord("Hi!")
+    println(lengthCounter.counter)
+//    lengthCounter.counter = 3 // setter方法是private 不可以使用
 }
