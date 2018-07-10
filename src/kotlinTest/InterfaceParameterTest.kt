@@ -25,8 +25,22 @@ class FaceBookUser(val accountId: Int) : User2 {
 }
 
 
+class User3(val name: String) {
+    var address: String = "unspecified"
+        set(value: String) {
+            println("""
+                Address was change for $name :
+                "$field" -> "$value".""".trimIndent())
+            field = value
+        }
+}
+
+
 fun main(args: Array<String>) {
     println(PrivateUser("test@kotlinlang.org").nickname)
     println(SubscribingUser("test@kotlinlang.org").nickname)
     println(FaceBookUser(3).nickname)
+
+    val user3 = User3("Alice")
+    user3.address = "广东省深圳市"
 }
