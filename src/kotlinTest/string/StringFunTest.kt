@@ -1,4 +1,4 @@
-package kotlinTest.variable
+package kotlinTest.string
 
 fun main(args: Array<String>) {
     val s1 = "2.35"

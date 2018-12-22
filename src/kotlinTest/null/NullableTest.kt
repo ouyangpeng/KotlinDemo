@@ -1,4 +1,4 @@
-package kotlinTest.variable
+package kotlinTest.`null`
 
 fun main(args: Array<String>) {
     var str = "ouyangpeng"

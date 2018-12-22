@@ -1,4 +1,4 @@
-package kotlinTest.variable
+package kotlinTest.string
 
 fun main(args: Array<String>) {
     // 在字符串中 嵌入 变量

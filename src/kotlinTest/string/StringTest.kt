@@ -1,4 +1,4 @@
-package kotlinTest.variable
+package kotlinTest.string
 
 fun main(args: Array<String>) {
     /**
