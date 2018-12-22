@@ -22,10 +22,14 @@ fun main(args: Array<String>) {
     println("b= $b")
 
     // Kotlin 在表达式中可以自动转换，这种转换是给予上下文推断出来的
-    // 算数表达式中的 bookPrice和itemPrice 自动提升为Int类型
+    // 算数表达式中的 bookPrice(Byte类型)和itemPrice(Short类型)自动提升为Int类型
     val total = bookPrice + itemPrice
     println("total = $total")
+    println("total的类型为 = ${total.javaClass}")
 
+    val tol = bookPrice.toLong() + itemPrice.toLong()
+    println("tol = $tol")
+    println("tol的类型为 = ${tol.javaClass}")
 
     val amount = 233
     //将Int类型转换为Byte类型，发生了溢出   //byteAmount = -23
