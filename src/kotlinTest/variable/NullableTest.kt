@@ -11,8 +11,8 @@ fun main(args: Array<String>) {
     // 编译器推断 n的类型为 Int?
     var n = str.toIntOrNull()
 
-    var aStr :String = "oyp"
-    var bStr :String? = "oyp"
+    var aStr: String = "oyp"
+    var bStr: String? = "oyp"
 
     // 错误，aStr不接受 null， Error:(17, 12) Kotlin: Null can not be a value of a non-null type String
 //    aStr = null
@@ -20,5 +20,21 @@ fun main(args: Array<String>) {
 
     println(aStr.length)
     //编译不通过，Error:(22, 17) Kotlin: Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
+    // 可空类型不能直接调用方法或属性
 //    println(bStr.length)
+
+
+    // 先判断再使用
+
+    var b: String? = "oyp"
+    // 先判断b 不为空，然后再访问b的属性
+    var len = if (b != null) b.length else -1
+    println("b的长度为 $len")
+
+    b = null
+    if (b != null && b.length > 0){
+        println("b的长度为 ${b.length}")
+    } else {
+        println("b为空字符串")
+    }
 }
