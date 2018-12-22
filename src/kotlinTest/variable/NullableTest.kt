@@ -37,4 +37,17 @@ fun main(args: Array<String>) {
     } else {
         println("b为空字符串")
     }
+
+
+    // 因为 Boolean? 类型，可以接受  true false null 三个值
+    // 因此 对Boolean? 类型变量判断时，要显示与 true false 的值做比较
+
+    var bParam : Boolean? = null
+    if (bParam == true){
+        println("为真")
+    }
+    // 下面的代码 会报错：Error:(47, 9) Kotlin: Type mismatch: inferred type is Boolean? but Boolean was expected
+//    if (bParam){
+//        println("为真")
+//    }
 }
