@@ -21,16 +21,23 @@ fun main(args: Array<String>) {
     var b: Short = bookPrice.toShort()
     println("b= $b")
 
+    // Kotlin 在表达式中可以自动转换，这种转换是给予上下文推断出来的
+    // 算数表达式中的 bookPrice和itemPrice 自动提升为Int类型
+    val total = bookPrice + itemPrice
+    println("total = $total")
+
+
     val amount = 233
     //将Int类型转换为Byte类型，发生了溢出   //byteAmount = -23
-    //十进制 233
-    // 二进制表示为   32位 Int类型：000000000000000011101001
+
     //程序将233 强制转换为8位的Byte类型整数，截取前面的24位，保留右边的8位,其中最左边的1是符号位，
     // 因此表明是一个负数，负数在计算机以补码形式存在，还需要转换为原码。
     // 公式：将补码减1得到反码形式，放码取反得到原码
-    //       8位  Byte类型 补码形式：               11101001
-    //                     反码形式：               11101000
-    //                     原码形式：               10010111
+
+    //十进制233二进制表示为 32位Int类型：  000000000000000011101001
+    //           8位  Byte类型 补码形式：                  11101001
+    //                         反码形式：                  11101000
+    //                         原码形式：                  10010111
     // 从而变成了-(16+4+2+1) = -23
     val byteAmount: Byte = amount.toByte()
     println("byteAmount = $byteAmount")
