@@ -12,4 +12,13 @@ fun main(args: Array<String>) {
     // 将Int类型赋值给Short类型，发送错误  Error:(7, 14) Kotlin: Type mismatch: inferred type is Int but Short was expected
     //    sValue = sValue - 2
 
+    var b: Byte = 40
+    var c: Short = 97
+    var i: Int = 23
+    var d: Double = .314
+
+    // 右边表达式最高等级的操作数是d(Double类型)，因此右边表达式类型为Double，推断result将会是Double类型
+    val result = b + c + i * d
+    println("result = $result")                         //result = 144.222
+    println("result的类型为 = ${result.javaClass}")     //result的类型为 = double
 }
